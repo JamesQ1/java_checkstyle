@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <!-- 官方主页：https://checkstyle.sourceforge.io -->
+    <!-- 检查文件是否以一个空行结束 -->
+    <module name="NewlineAtEndOfFile"/>
+    <!-- 文件长度不超过1500行 -->
+    <module name="FileLength">
+        <property name="max" value="1500"/>
+    </module>
+    <!-- 每行不超过120个字 -->
+    <module name="LineLength">
+        <property name="max" value="120"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!-- ********************************import方面的检查*********** -->
+        <!-- import中避免星号"*" -->
+        <module name="AvoidStarImport"/>
+        <!-- 检查是否从非法的包中导入了类 -->
+        <module name="IllegalImport"/>
+        <!-- 检查是否导入了多余的包 -->
+        <module name="RedundantImport"/>
+        <!--没用的import检查，比如：1.没有被用到 2.重复的 3.import java.lang的 4.import与该类在同一个package的-->
+        <module name="UnusedImports"/>
+
+     
+        <!-- ************************代码行数及行代码长度限制****************** -->
+        <!-- 文件长度不超过1500行，放在TreeWalker前面 -->
+        <!-- 方法不超过300行 -->
+        <module name="MethodLength">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="300"/>
+        </module>
+        <!-- 每行不超过120个字
+        <module name="LineLength">
+            <property name="max" value="150"/>
+        </module>
+        -->
+
+        <module name="EmptyStatement"/>
+        <!-- 如果某个变量一直都没变，那么它就应该是final型的
+        <module name="FinalLocalVariable"/>
+        -->
+        <!-- 检查在重写了equals方法后是否重写了hashCode方法 -->
+        <module name="EqualsHashCode"/>
+        <!-- 不允许使用switch语句
+        <module name="IllegalToken">
+            <property name="tokens" value="LITERAL_SWITCH"/>
+        </module>
+        -->
+   
+    </module>
+</module>
